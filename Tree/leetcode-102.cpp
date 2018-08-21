@@ -33,8 +33,8 @@ private:
         if(!root) return;
         //work with pre/in/post order
         while(ans.size() <= depth) ans.push_back( {} );  //if true, add one row
-        DFS(root.left, depth+1, ans);
-        DFS(root.right, depth+1, ans);
+        DFS(root->left, depth+1, ans);
+        DFS(root->right, depth+1, ans);
         ans[depth].push_back(root->val);    //post-order, append to the tail of the depth row
     }
 
