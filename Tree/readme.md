@@ -1,1 +1,1 @@
-Here are some solution of the problems about Tree derive from leetcode
+Here are some solutions of the problems about Tree derive from leetcode
