@@ -96,18 +96,3 @@ bool MyCircularDeque::isFull()
 {
     return size == capacity;
 }
-
-int main()
-{
-    int k = 10, value1 = 5, value2 = 6;
-    MyCircularDeque obj(k);
-    bool param_1 = obj.insertFront(value1);
-    bool param_2 = obj.insertLast(value2);
-    bool param_3 = obj.deleteFront();
-    bool param_4 = obj.deleteLast();
-    int param_5 = obj.getFront();
-    int param_6 = obj.getRear();
-    bool param_7 = obj.isEmpty();
-    bool param_8 = obj.isFull();
-    return 0;
-}
