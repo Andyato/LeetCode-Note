@@ -1,2 +1,2 @@
-#Data-Structures-Algroithms
+# Data-Structures-Algroithms
 A Coding Note
