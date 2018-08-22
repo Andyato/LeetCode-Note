@@ -1,1 +1,1 @@
-Here are some solutions of the problems about **Dynamic Programming** from [leetcode](https://leetcode.com/).
+Here are some solutions of the problems about **Dynamic Programming** derived from [leetcode](https://leetcode.com/).
