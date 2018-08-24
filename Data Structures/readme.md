@@ -1,1 +1,1 @@
-Here are some solutions of various **Data-Structures** derived from [leetcode](https://leetcode.com/).
+Here are some solutions of various **Queue** derived from [leetcode](https://leetcode.com/).
