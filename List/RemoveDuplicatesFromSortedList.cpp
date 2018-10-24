@@ -1,7 +1,5 @@
 /* leetcode-83 */
 
-
-
 // Definition for singly-linked list.
 struct ListNode
 {
@@ -22,7 +20,10 @@ public:
         {
             ListNode* pNext = pIter->next;
             if(pIter->val == pNext->val)
+            {
                 pIter->next = pNext->next;
+                delete pNext;
+            }
             else
                 pIter = pIter->next;
         }  
