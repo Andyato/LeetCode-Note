@@ -1,46 +1,58 @@
-/*
-Given a binary tree, return the preorder traversal of its nodes' values.
-*/
+#include <vector>
+#include <stack>
 
+using namespace std;
+
+// Definition for a binary tree node.
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+// PreOrder Morris Traversal
+// Time: O(n), n is the node number in the tree
+// Space: O(1)
 class Solution
 {
 public:
-    //### iterative ###//
-    vector<int> preorderTraversal(TreeNode* root)
+    vector<int> preorderTraversal(TreeNode *root)
     {
-        if(!root) return {};
-        vector<int> ans;
-        stack<TreeNode*> s;
-        TreeNode* curr = root;
-        while(curr || !s.empty())
+
+        vector<int> res;
+        if (root == NULL)
+            return res;
+
+        TreeNode *cur = root;
+        while (cur != NULL)
         {
-            while(curr)
+            if (cur->left == NULL)
             {
-                ans.push_back(curr->val);
-                s.push(curr);
-                curr = curr->left;
+                res.push_back(cur->val);
+                cur = cur->right;
             }
-            curr = s.top(); s.pop();
-            curr = curr->right;
+            else
+            {
+                TreeNode *prev = cur->left;
+                while (prev->right != NULL && prev->right != cur)
+                    prev = prev->right;
+
+                if (prev->right == NULL)
+                {
+                    res.push_back(cur->val);
+                    prev->right = cur;
+                    cur = cur->left;
+                }
+                else
+                {
+                    prev->right = NULL;
+                    cur = cur->right;
+                }
+            }
         }
-        return ans;
-    }
 
-    //### recursive ###//
-    vector<int> preorderTraversal(TreeNode* root)
-    {
-        if(!root) return {};
-        vector<int> ans;  
-        preorderTraversal(root, ans);
-        return ans;
-    }
-
-private:
-    void preorderTraversal(TreeNode* root, vector<int>& ans)
-    {
-        if(!root) return;
-        ans.push_back(root->val);
-        preorderTraversal(root->left, ans);
-        preorderTraversal(root->right, ans);
+        return res;
     }
 };
