@@ -16,9 +16,10 @@ class Solution  //minimum
 public:
     int minDepth(TreeNode* root)
     {
-        if (!root) return 0;
-        if (!root->left) return minDepth(root->right) + 1;
-        if (!root->right) return minDepth(root->left) + 1;
+        if (root == nullptr) return 0;        
+        if (root->left == nullptr) return minDepth(root->right) + 1;
+        if (root->right == nullptr) return minDepth(root->left) + 1;
+
         return min(minDepth(root->left), minDepth(root->right)) + 1;
     }
 };
@@ -29,6 +30,7 @@ class Solution //maximum
     int maxDepth(TreeNode *root)
     {
         if (!root) return 0;
-        return max(maxDepth(root->left) h, maxDepth(root->right)) + 1;
+
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
     }
 };

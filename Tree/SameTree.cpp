@@ -1,4 +1,4 @@
-//################# same tree ###############//
+//################# leetcode-100 ###############//
 
 //Define a binary tree node
 struct TreeNode
@@ -9,15 +9,17 @@ struct TreeNode
     TreeNode(int x) : val(s), right(nullptr), left(nullptr) {}
 };
 
-class solution
+class Solution
 {
-    public:
-        bool isSame(TreeNode* p, TreeNode* q)
-        {
-            //Both are empty: same
-            if(!p && !q) return true;
-            if(!p || !q) return false;
-            if(p->val != q->val) return false;
-            return isSame(p->left, q->left) && isSame(p->right, q->right);
-        }
+public:
+    bool isSameTree(TreeNode *p, TreeNode *q)
+    {
+        if(p == nullptr && q == nullptr) return true;
+        if(p == nullptr || q == nullptr) return false;
+
+        if(p->val != q->val)
+            return false;
+        else 
+            return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+    }
 };
