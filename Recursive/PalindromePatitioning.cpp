@@ -1,4 +1,4 @@
-/* leetcode-93 */
+/* leetcode-131 */
 
 #include<vector>
 #include<string>
@@ -7,7 +7,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<string> restoreIpAddresses(string s)
+    vector<vector<string>> partition(string s)
     {
         
     }
