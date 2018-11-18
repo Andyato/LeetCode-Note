@@ -45,7 +45,7 @@ public:
 
         for(int i = n-2; i >= 0; --i)
             for(int j = i; j < n; ++j)
-                memo[i] = max( memo[i], nums[j] + memo[j+2] );
+                memo[i] = max( memo[i], nums[j] + (j+2<n ? memo[j+2] : 0) );
 
         return memo[0];
     }           
