@@ -28,13 +28,13 @@ public:
     }
 private:
     //递归
-    void DFS(TreeNode *root, int depth, vector<vector<int>>& ans)
+    void BFS(TreeNode *root, int depth, vector<vector<int>>& ans)
     {
         if(!root) return;
         //work with pre/in/post order
         while(ans.size() <= depth) ans.push_back( {} );  //if true, add one row
-        DFS(root->left, depth+1, ans);
-        DFS(root->right, depth+1, ans);
+        BFS(root->left, depth+1, ans);
+        BFS(root->right, depth+1, ans);
         ans[depth].push_back(root->val);    //post-order, append to the tail of the depth row
     }
 
@@ -42,6 +42,7 @@ private:
     vector<vector<int>> BFS(TreeNode* root)
     {
         if (!root) return {};
+        
         vector<vector<int>> ans;
         vector<TreeNode*> curr, next;
         curr.push_back(root);

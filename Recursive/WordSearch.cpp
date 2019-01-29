@@ -41,6 +41,7 @@ public:
     bool exist(vector<vector<char>> &board, string word)
     {
         m = board.size();
+        if(m == 0) return false;
         n = board[0].size();
         visited = vector<vector<bool>>( m, vector<bool>(n, false) );
 
